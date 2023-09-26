@@ -35,7 +35,7 @@ app.get('/api/Fruits/add', (req,res) =>{
     res.render('FruitForm.ejs');
 })
 
-// we will continue this on thusday
+
 app.get('/api/Fruits/add/:id', (req,res) =>{
     res.render('updateFruitForm.ejs');
 })
