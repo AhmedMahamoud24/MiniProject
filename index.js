@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     </button> `)
 })
 
-// Refactor the /api/Fruits route to use Promises and async/await
+
 app.get('/api/Fruits', async (req, res) => {
     try {
         const fruits = await getFruits();
@@ -37,7 +37,6 @@ app.get('/api/Fruits', async (req, res) => {
     }
 });
 
-// Function to get Fruits using a Promise
 function getFruits() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -54,7 +53,7 @@ app.get('/api/Fruits/add/:id', (req, res) => {
     res.render('updateFruitForm.ejs');
 })
 
-// Refactor the /api/Fruits POST route to use Promises and async/await
+
 app.post('/api/Fruits', async (req, res) => {
     try {
         const newFruit = {
@@ -69,13 +68,13 @@ app.post('/api/Fruits', async (req, res) => {
     }
 });
 
-// Function to add a new Fruit using a Promise
+
 function addFruit(newFruit) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             Fruits.push(newFruit);
             resolve();
-        }, 1000); // Simulate an asynchronous operation
+        }, 1000); 
     });
 }
 
