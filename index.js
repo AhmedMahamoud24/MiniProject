@@ -6,11 +6,10 @@ app.use(express.urlencoded());
 app.use(express.json());
 app.set('view engine', 'ejs')
 
-app.use((req,res,next) =>{
-console.log(`${req.method} request for ${req.url}`);
-next()
-})
-
+app.use((req, res, next) => {
+    console.log(`${req.method} request for ${req.url}`);
+    next();
+});
 
 const Fruits = [
     { id: 1, name: 'Apple' },
@@ -18,7 +17,7 @@ const Fruits = [
     { id: 3, name: 'Pineapple' },
 ]
 
-app.get('/', (req, res) =>{
+app.get('/', (req, res) => {
     res.send(`<button >
     <a href="/api/Fruits""> Fruits </a> 
     </button> 
@@ -27,32 +26,59 @@ app.get('/', (req, res) =>{
     </button> `)
 })
 
-app.get('/api/Fruits', (req,res) => {
-    res.render ("Fruits.ejs",{Fruits});
-})
+// Refactor the /api/Fruits route to use Promises and async/await
+app.get('/api/Fruits', async (req, res) => {
+    try {
+        const fruits = await getFruits();
+        res.render("Fruits.ejs", { Fruits: fruits });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error fetching fruits");
+    }
+});
 
-app.get('/api/Fruits/add', (req,res) =>{
+// Function to get Fruits using a Promise
+function getFruits() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(Fruits);
+        }, 1000); 
+    });
+}
+
+app.get('/api/Fruits/add', (req, res) => {
     res.render('FruitForm.ejs');
 })
 
-
-app.get('/api/Fruits/add/:id', (req,res) =>{
+app.get('/api/Fruits/add/:id', (req, res) => {
     res.render('updateFruitForm.ejs');
 })
 
-app.post('/api/Fruits', (req, res)=>{
+// Refactor the /api/Fruits POST route to use Promises and async/await
+app.post('/api/Fruits', async (req, res) => {
+    try {
+        const newFruit = {
+            id: Fruits.length + 1,
+            name: req.body.name
+        };
+        await addFruit(newFruit);
+        res.redirect('/api/Fruits');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error adding fruit");
+    }
+});
 
-    console.log(req.body.name);
+// Function to add a new Fruit using a Promise
+function addFruit(newFruit) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            Fruits.push(newFruit);
+            resolve();
+        }, 1000); // Simulate an asynchronous operation
+    });
+}
 
-    const newWorkout ={
-    id:Fruits.length + 1,
-    name: req.body.name
-    };
- Fruits.push(newWorkout);
-    res.redirect('/api/Fruits');
-
-})
-
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
-})
+});
