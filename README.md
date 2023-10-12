@@ -17,4 +17,5 @@ Delete File
 # MiniProject5
 # Fruits List App
 - This React application fetches a list of fruits from a local API and displays them on the page. It allows users to refresh the fruits list with a button.
-- I basically opened a React aplication in Folder which already contains MiniProject4 
+- I basically opened a React aplication in Folder which already contains MiniProject4
+- To check my react app its in Folder mini-projec-t5 ---> App.js
