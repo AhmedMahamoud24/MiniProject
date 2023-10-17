@@ -1,41 +1,100 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 
-const App = () => {
-  const [fruits, setFruits] = useState([]); 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      exercises: [
+        { id: 1, name: 'Squat' },
+        { id: 2, name: 'Deadlift' },
+        { id: 3, name: 'Bench Press' },
+      ],  
+      showExercises: true,
+      newExerciseName: '',
+      editExerciseName: '',
+      editExerciseId: null,
+    };
+  }
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/api/Fruits')
-      .then(response => {
-        setFruits(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  handleAdd = () => {
+    const { exercises, newExerciseName } = this.state;
+    const newExercise = {
+      id: exercises.length + 1,
+      name: newExerciseName,
+    };
+    this.setState({
+      exercises: [...exercises, newExercise],
+      newExerciseName: '',
+    });
+  }
 
-  const handleRefresh = () => {
-    axios.get('http://localhost:3000/api/Fruits')
-      .then(response => {
-        setFruits(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  };
+  handleEditStart = (id) => {
+    const exerciseToEdit = this.state.exercises.find(ex => ex.id === id);
+    this.setState({ 
+      editExerciseName: exerciseToEdit.name,
+      editExerciseId: id,
+    });
+  }
+
+  handleEditConfirm = () => {
+    const updatedExercises = this.state.exercises.map(ex => 
+      ex.id === this.state.editExerciseId ? { ...ex, name: this.state.editExerciseName } : ex
+    );
+    this.setState({
+      exercises: updatedExercises,
+      editExerciseName: '',
+      editExerciseId: null,
+    });
+  }
+
+  handleDelete = (id) => {
+    const filteredExercises = this.state.exercises.filter(ex => ex.id !== id);
+    this.setState({ exercises: filteredExercises });
+  }
+
+  render() {
+    return (
+      <div>
+        
+        <input 
+          type="text"
+          placeholder="Enter new exercise"
+          value={this.state.newExerciseName}
+          onChange={(e) => this.setState({ newExerciseName: e.target.value })}
+        />
+        <button onClick={this.handleAdd}>Add Exercise</button>
+
+       
+        <ul>
+          {this.state.exercises.map(exercise => (
+            <li key={exercise.id}>
+              {exercise.name} 
+              {this.state.editExerciseId === exercise.id ? (
+                <span>
+                  <input 
+                    type="text" 
+                    value={this.state.editExerciseName}
+                    onChange={(e) => this.setState({ editExerciseName: e.target.value })}
+                  />
+                  <button onClick={this.handleEditConfirm}>Confirm Edit</button>
+                </span>
+              ) : (
+                <span>
+                  <button onClick={() => this.handleEditStart(exercise.id)}>Edit</button>
+                  <button onClick={() => this.handleDelete(exercise.id)}>Delete</button>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+
   
-  return (
-    <div>
-      <h1>Fruits List</h1>
-      <button onClick={handleRefresh}>Refresh</button>
-      <ul>
-        {fruits.map(fruit => (
-          <li key={fruit.id}>{fruit.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+        {this.state.showExercises && this.state.exercises.length === 0 ? (
+          <div>No exercises available.</div>
+        ) : null}
+      </div>
+    );
+  }
+}
 
 export default App;
