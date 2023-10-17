@@ -1,100 +1,109 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      exercises: [
-        { id: 1, name: 'Squat' },
-        { id: 2, name: 'Deadlift' },
-        { id: 3, name: 'Bench Press' },
-      ],  
-      showExercises: true,
-      newExerciseName: '',
-      editExerciseName: '',
-      editExerciseId: null,
-    };
-  }
+function useExerciseManager() {
+  const [exercises, setExercises] = useState([]);
+  const [newExerciseName, setNewExerciseName] = useState('');
+  const [editExerciseName, setEditExerciseName] = useState('');
+  const [editExerciseId, setEditExerciseId] = useState(null);
 
-  handleAdd = () => {
-    const { exercises, newExerciseName } = this.state;
-    const newExercise = {
-      id: exercises.length + 1,
-      name: newExerciseName,
-    };
-    this.setState({
-      exercises: [...exercises, newExercise],
-      newExerciseName: '',
-    });
-  }
+  useEffect(() => {
+    const storedExercises = JSON.parse(localStorage.getItem('exercises')) || [];
+    setExercises(storedExercises);
+  }, []);
 
-  handleEditStart = (id) => {
-    const exerciseToEdit = this.state.exercises.find(ex => ex.id === id);
-    this.setState({ 
-      editExerciseName: exerciseToEdit.name,
-      editExerciseId: id,
-    });
-  }
+  useEffect(() => {
+    localStorage.setItem('exercises', JSON.stringify(exercises));
+  }, [exercises]);
 
-  handleEditConfirm = () => {
-    const updatedExercises = this.state.exercises.map(ex => 
-      ex.id === this.state.editExerciseId ? { ...ex, name: this.state.editExerciseName } : ex
+  return {
+    exercises,
+    newExerciseName,
+    editExerciseName,
+    editExerciseId,
+    setNewExerciseName,
+    setEditExerciseName,
+    setEditExerciseId,
+  };
+}
+
+function App() {
+  const {
+    exercises,
+    newExerciseName,
+    editExerciseName,
+    editExerciseId,
+    setNewExerciseName,
+    setEditExerciseName,
+    setEditExerciseId,
+  } = useExerciseManager();
+
+  const handleAdd = () => {
+    if (newExerciseName.trim() !== '') {
+      const newExercise = {
+        id: exercises.length + 1,
+        name: newExerciseName,
+      };
+      setExercises([...exercises, newExercise]);
+      setNewExerciseName('');
+    }
+  };
+
+  const handleEditStart = (id) => {
+    const exerciseToEdit = exercises.find((ex) => ex.id === id);
+    setEditExerciseName(exerciseToEdit.name);
+    setEditExerciseId(id);
+  };
+
+  const handleEditConfirm = () => {
+    const updatedExercises = exercises.map((ex) =>
+      ex.id === editExerciseId ? { ...ex, name: editExerciseName } : ex
     );
-    this.setState({
-      exercises: updatedExercises,
-      editExerciseName: '',
-      editExerciseId: null,
-    });
-  }
+    setExercises(updatedExercises);
+    setEditExerciseName('');
+    setEditExerciseId(null);
+  };
 
-  handleDelete = (id) => {
-    const filteredExercises = this.state.exercises.filter(ex => ex.id !== id);
-    this.setState({ exercises: filteredExercises });
-  }
+  const handleDelete = (id) => {
+    const filteredExercises = exercises.filter((ex) => ex.id !== id);
+    setExercises(filteredExercises);
+  };
 
-  render() {
-    return (
-      <div>
-        
-        <input 
-          type="text"
-          placeholder="Enter new exercise"
-          value={this.state.newExerciseName}
-          onChange={(e) => this.setState({ newExerciseName: e.target.value })}
-        />
-        <button onClick={this.handleAdd}>Add Exercise</button>
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter new exercise"
+        value={newExerciseName}
+        onChange={(e) => setNewExerciseName(e.target.value)}
+      />
+      <button onClick={handleAdd}>Add Exercise</button>
 
-       
-        <ul>
-          {this.state.exercises.map(exercise => (
-            <li key={exercise.id}>
-              {exercise.name} 
-              {this.state.editExerciseId === exercise.id ? (
-                <span>
-                  <input 
-                    type="text" 
-                    value={this.state.editExerciseName}
-                    onChange={(e) => this.setState({ editExerciseName: e.target.value })}
-                  />
-                  <button onClick={this.handleEditConfirm}>Confirm Edit</button>
-                </span>
-              ) : (
-                <span>
-                  <button onClick={() => this.handleEditStart(exercise.id)}>Edit</button>
-                  <button onClick={() => this.handleDelete(exercise.id)}>Delete</button>
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
+      <ul>
+        {exercises.map((exercise) => (
+          <li key={exercise.id}>
+            {exercise.name}
+            {editExerciseId === exercise.id ? (
+              <span>
+                <input
+                  type="text"
+                  value={editExerciseName}
+                  onChange={(e) => setEditExerciseName(e.target.value)}
+                />
+                <button onClick={handleEditConfirm}>Confirm Edit</button>
+              </span>
+            ) : (
+              <span>
+                <button onClick={() => handleEditStart(exercise.id)}>Edit</button>
+                <button onClick={() => handleDelete(exercise.id)}>Delete</button>
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
 
-  
-        {this.state.showExercises && this.state.exercises.length === 0 ? (
-          <div>No exercises available.</div>
-        ) : null}
-      </div>
-    );
-  }
+      {exercises.length === 0 && <div>No exercises available.</div>}
+    </div>
+  );
 }
 
 export default App;
