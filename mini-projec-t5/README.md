@@ -4,7 +4,7 @@
 # Features
 JSX Syntax:
 
-#Demonstrated the use of JSX in rendering components.
+# Demonstrated the use of JSX in rendering components.
 File: JSXExample.js.
 
 Functional and Class Components:
