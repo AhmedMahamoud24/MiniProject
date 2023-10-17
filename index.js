@@ -37,6 +37,7 @@ app.get('/api/Fruits', async (req, res) => {
     }
 });
 
+
 function getFruits() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -74,7 +75,10 @@ function addFruit(newFruit) {
         setTimeout(() => {
             Fruits.push(newFruit);
             resolve();
+
         }, 1000); 
+
+
     });
 }
 
