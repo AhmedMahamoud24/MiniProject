@@ -76,6 +76,9 @@ function addFruit(newFruit) {
             Fruits.push(newFruit);
             resolve();
 
+        }, 1000); 
+
+
     });
 }
 
