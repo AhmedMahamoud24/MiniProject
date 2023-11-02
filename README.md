@@ -63,7 +63,50 @@ In the project directory, run: npm install
 Start the server: node index.js
 Access via: http://localhost:3000/
 
+# Mini-Project 5 
 
+In the fifth iteration of the mini-project series, we take a leap into the world of React, one of the most popular frontend frameworks. We'll be integrating with the backend developed in Mini-Project 4, fetching data, and rendering it seamlessly using React components.
+
+# Features & Implementations:
+
+# Repository Initialization:
+
+Cloned the existing repository from Mini-Project 4.
+# React Setup:
+
+Initialized a new React application using Create React App within the cloned project directory.
+# JSX Syntax:
+
+Introduced a new component that showcases the benefits and utilization of JSX syntax.
+# Component Types:
+
+Demonstrated both functional and class components with respective examples.
+# Props and State:
+
+Developed a component that not only receives props but also manages its internal state for dynamic functionalities.
+# Event Handling:
+
+Incorporated event handlers in components to capture user interactions.
+# Conditional Rendering:
+
+Implemented scenarios where components or their parts render based on certain conditions.
+# Lists and Keys:
+
+Rendered a dynamic list of items with the proper usage of unique keys.
+# API Integration:
+
+Integrated with the RESTful API designed in Mini-Project 4, fetching data and displaying it within React components.
+# Version Control:
+
+- All changes were committed to a new branch named mini-project-5.
+- The branch was subsequently pushed to the existing GitHub repository.
+- Initiated a pull request to merge changes from mini-project-5 into the main branch.
+# How to Run:
+Clone the repository.
+Navigate to the project directory.
+Install dependencies using: npm install
+Start the React app: npm start
+The application should open in your default browser at http://localhost:3000/.
 
 
 # Miniproject-6 
