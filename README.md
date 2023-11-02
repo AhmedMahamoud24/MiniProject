@@ -19,7 +19,7 @@ Delete: Deletes the example.txt file.
 
 
 
-#Mini-Project 3 
+# Mini-Project 3 
 
 Introducing the third iteration of our mini-projects, now powered by Express.js. We've built upon our server.js & fileOperations.js foundations and integrated CRUD operations for a collection of fruits. This iteration also sees the introduction of EJS templating for dynamic content rendering.
 
