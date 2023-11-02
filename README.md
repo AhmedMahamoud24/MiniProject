@@ -73,7 +73,7 @@ Read file
 write file
 Delete File
 
-# Also shows errors
+
 
 # Miniproject-6 
 
