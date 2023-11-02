@@ -46,7 +46,6 @@ Start the server: node index.js
 Access via: http://localhost:3000/
 
 
-###############
 
 # Mini-Project 4
 
