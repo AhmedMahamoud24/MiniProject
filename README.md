@@ -46,7 +46,7 @@ Start the server: node index.js
 Access via: http://localhost:3000/
 
 
-
+###############
 
 # Mini-Project 4
 
@@ -63,15 +63,7 @@ Install Node.js.
 In the project directory, run: npm install
 Start the server: node index.js
 Access via: http://localhost:3000/
-# MiniProject
 
-#Functionality
-
-This code program does the following
-
-Read file
-write file
-Delete File
 
 
 
