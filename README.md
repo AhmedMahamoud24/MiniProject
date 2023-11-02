@@ -37,6 +37,27 @@ Fruits.ejs: Displays the list of fruits.
 updateFruitForm.ejs: A form to update existing fruits.
 
 
+# How to Run:
+Install Node.js.
+In the project directory, run: npm install
+Start the server: node index.js
+Access via: http://localhost:3000/
+
+# Mini-Project 4
+
+The fourth mini-project edition introduces improvements to our Express server with a special emphasis on asynchronous operations for our fruit CRUD functionalities.
+
+# Changes:
+index.js:
+Introduced asynchronous handling for fetching and adding fruits.
+Implemented getFruits & addFruit functions that mimic database operations with a 1-second delay using promises.
+Enhanced error handling in routes with try-catch blocks.
+
+# How to Run:
+Install Node.js.
+In the project directory, run: npm install
+Start the server: node index.js
+Access via: http://localhost:3000/
 # MiniProject
 
 #Functionality
