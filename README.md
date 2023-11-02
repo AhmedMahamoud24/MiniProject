@@ -18,6 +18,24 @@ Read: Reads content from example.txt and logs it to the console.
 Delete: Deletes the example.txt file.
 
 
+
+#Mini-Project 3 
+
+Introducing the third iteration of our mini-projects, now powered by Express.js. We've built upon our server.js & fileOperations.js foundations and integrated CRUD operations for a collection of fruits. This iteration also sees the introduction of EJS templating for dynamic content rendering.
+
+#Features:
+index.js:
+
+Express server setup on port 3000.
+Middleware configurations for body-parsing and request logging.
+CRUD routes for the Fruits collection.
+EJS Templates:
+
+FruitForm.ejs: A form to add new fruits.
+Fruits.ejs: Displays the list of fruits.
+updateFruitForm.ejs: A form to update existing fruits.
+
+
 # MiniProject
 
 #Functionality
