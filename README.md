@@ -1,3 +1,23 @@
+# Mini-Project2 
+
+This mini-project is focused on building a basic HTTP server using Node.js and performing file operations such as reading, writing, and deleting files using the fs module in Node.js.
+
+# Changes
+
+1. server.js
+Created a basic HTTP server using the http module.
+The server listens on port 3000.
+Implemented a simple route /api/users which reads user data from a file (users.json).
+Added error handling: If the user data file cannot be read, a 500 Internal Server Error is returned. If the route is not recognized, a 404 Not Found error is returned.
+
+2. FileOperations.js
+Used the fs module for file operations.
+Implemented the following file operations:
+Write: Writes the text Hello World! to a file named example.txt.
+Read: Reads content from example.txt and logs it to the console.
+Delete: Deletes the example.txt file.
+
+
 # MiniProject
 
 #Functionality
