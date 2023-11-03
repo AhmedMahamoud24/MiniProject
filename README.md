@@ -1,11 +1,15 @@
-# MiniProject
+### Mini-Project 3
 
-#Functionality
+**Description:**  
+Introducing the third iteration, now powered by Express.js with EJS templating for dynamic content rendering.
 
-This code program does the following
+**Key Features:**  
+- Express server setup with CRUD routes for a Fruits collection.
+- EJS Templates for fruit operations.
 
-Read file
-write file
-Delete File
+**How to Run:**  
+1. Install Node.js.
+2. Navigate to the project directory and run: `npm install`.
+3. Start the server: `node index.js`.
+4. Access via: `http://localhost:3000/`.
 
-# Also shows errors
