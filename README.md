@@ -1,16 +1,14 @@
-# MiniProject
+### Mini-Project 4
 
-#Functionality
+**Description:**  
+This iteration introduces improvements to our Express server focusing on asynchronous operations.
 
-This code program does the following
+**Key Changes:**  
+- Asynchronous handling for fetching and adding fruits.
+- Improved error handling in routes.
 
-Read file
-write file
-Delete File
-
-# Also shows errors
-
-# Fruits API Refactoring
-
-- In my Miniproject4, I refactor the existing code for a simple "Fruits" API to use Promises and async/await. The code is written in JavaScript and utilizes the Express.js framework. The goal of this refactoring is to make the code more readable and maintainable by using asynchronous functions and Promises.
-
+**How to Run:**  
+1. Install Node.js.
+2. Navigate to the project directory and run: `npm install`.
+3. Start the server: `node index.js`.
+4. Access via: `http://localhost:3000/`.
