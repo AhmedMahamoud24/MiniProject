@@ -1,147 +1,123 @@
-# Mini-Project2 
+# Mini-Project Series
 
-This mini-project is focused on building a basic HTTP server using Node.js and performing file operations such as reading, writing, and deleting files using the fs module in Node.js.
+A series of mini-projects ranging from basic Node.js HTTP servers to advanced React applications.
 
-# Changes
+## Mini-Project2
 
-1. server.js
-Created a basic HTTP server using the http module.
-The server listens on port 3000.
-Implemented a simple route /api/users which reads user data from a file (users.json).
-Added error handling: If the user data file cannot be read, a 500 Internal Server Error is returned. If the route is not recognized, a 404 Not Found error is returned.
+**Description:**  
+This mini-project focuses on building a basic HTTP server using Node.js and performing file operations such as reading, writing, and deleting files using the `fs` module in Node.js.
 
-2. FileOperations.js
-Used the fs module for file operations.
-Implemented the following file operations:
-Write: Writes the text Hello World! to a file named example.txt.
-Read: Reads content from example.txt and logs it to the console.
-Delete: Deletes the example.txt file.
+**Key Changes:**  
+- Created a basic HTTP server using the `http` module that listens on port 3000.
+- Implemented a simple route `/api/users` which reads user data from a `users.json` file.
+- Error handling improvements.
+  
+## Mini-Project 3
 
+**Description:**  
+Introducing the third iteration, now powered by Express.js with EJS templating for dynamic content rendering.
 
+**Key Features:**  
+- Express server setup with CRUD routes for a Fruits collection.
+- EJS Templates for fruit operations.
 
+**How to Run:**  
+1. Install Node.js.
+2. Navigate to the project directory and run: `npm install`.
+3. Start the server: `node index.js`.
+4. Access via: `http://localhost:3000/`.
 
+## Mini-Project 4
 
-# Mini-Project 3 
+**Description:**  
+This iteration introduces improvements to our Express server focusing on asynchronous operations.
 
-Introducing the third iteration of our mini-projects, now powered by Express.js. We've built upon our server.js & fileOperations.js foundations and integrated CRUD operations for a collection of fruits. This iteration also sees the introduction of EJS templating for dynamic content rendering.
+**Key Changes:**  
+- Asynchronous handling for fetching and adding fruits.
+- Improved error handling in routes.
 
-# Features:
+**How to Run:**  
+1. Install Node.js.
+2. Navigate to the project directory and run: `npm install`.
+3. Start the server: `node index.js`.
+4. Access via: `http://localhost:3000/`.
 
-index.js:
+## Mini-Project 5
 
-Express server setup on port 3000.
-Middleware configurations for body-parsing and request logging.
-CRUD routes for the Fruits collection.
-EJS Templates:
+**Description:**  
+This iteration delves into the world of React, integrating with the backend from Mini-Project 4.
 
-FruitForm.ejs: A form to add new fruits.
-Fruits.ejs: Displays the list of fruits.
-updateFruitForm.ejs: A form to update existing fruits.
+**Key Features & Implementations:**  
+- Cloned the existing repository from Mini-Project 4.
+- Initialized a new React app.
+- Showcased JSX syntax, different component types, props & state, event handling, conditional rendering, lists & keys, and API integration.
+- Version control through GitHub.
 
+**How to Run:**  
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies using: `npm install`.
+4. Start the React app: `npm start`.
+5. Access via: `http://localhost:3000/`.
 
-# How to Run:
-Install Node.js.
-In the project directory, run: npm install
-Start the server: node index.js
-Access via: http://localhost:3000/
+## Mini-Project 6: React Exercise Manager
 
+**Description:**  
+A web application for managing exercise routines utilizing the `useState` and `useEffect` hooks.
 
+**Features:**  
+- Add, edit, or delete exercises.
+- Data persistence in local storage.
 
-# Mini-Project 4
-
-The fourth mini-project edition introduces improvements to our Express server with a special emphasis on asynchronous operations for our fruit CRUD functionalities.
-
-# Changes:
-index.js:
-Introduced asynchronous handling for fetching and adding fruits.
-Implemented getFruits & addFruit functions that mimic database operations with a 1-second delay using promises.
-Enhanced error handling in routes with try-catch blocks.
-
-# How to Run:
-Install Node.js.
-In the project directory, run: npm install
-Start the server: node index.js
-Access via: http://localhost:3000/
-
-# Mini-Project 5 
-
-In the fifth iteration of the mini-project series, we take a leap into the world of React, one of the most popular frontend frameworks. We'll be integrating with the backend developed in Mini-Project 4, fetching data, and rendering it seamlessly using React components.
-
-# Features & Implementations:
-
-# Repository Initialization:
-
-Cloned the existing repository from Mini-Project 4.
-# React Setup:
-
-Initialized a new React application using Create React App within the cloned project directory.
-# JSX Syntax:
-
-Introduced a new component that showcases the benefits and utilization of JSX syntax.
-# Component Types:
-
-Demonstrated both functional and class components with respective examples.
-# Props and State:
-
-Developed a component that not only receives props but also manages its internal state for dynamic functionalities.
-# Event Handling:
-
-Incorporated event handlers in components to capture user interactions.
-# Conditional Rendering:
-
-Implemented scenarios where components or their parts render based on certain conditions.
-# Lists and Keys:
-
-Rendered a dynamic list of items with the proper usage of unique keys.
-# API Integration:
-
-Integrated with the RESTful API designed in Mini-Project 4, fetching data and displaying it within React components.
-# Version Control:
-
-- All changes were committed to a new branch named mini-project-5.
-- The branch was subsequently pushed to the existing GitHub repository.
-- Initiated a pull request to merge changes from mini-project-5 into the main branch.
-# How to Run:
-Clone the repository.
-Navigate to the project directory.
-Install dependencies using: npm install
-Start the React app: npm start
-The application should open in your default browser at http://localhost:3000/.
-
-
-# Miniproject-6 
-
-# React Exercise Manager
-
-A simple React application that allows you to manage exercise routines using the `useState` and `useEffect` hooks.
-
-
-## Project Description
-
-The React Exercise Manager is a basic web application that allows users to:
-
-- Add new exercises to their routine.
-- Edit the names of existing exercises.
-- Delete exercises from their routine.
-- Persist exercise data in local storage.
-
-The application utilizes the `useState` and `useEffect` hooks for state management and side effects, providing a simple yet effective way to maintain exercise data.
-
-## Features
-
-- **Add Exercise**: Enter the name of a new exercise and click the "Add Exercise" button to add it to your routine.
-
-- **Edit Exercise**: Click the "Edit" button next to an exercise to modify its name. Confirm the edit by clicking the "Confirm Edit" button.
-
-- **Delete Exercise**: Remove exercises from your routine by clicking the "Delete" button.
-
-- **Local Storage**: Your exercise data is automatically saved to local storage, ensuring that your exercise routines persist even after you close or refresh the app.
-
-## Getting Started
-
-### Prerequisites
-
-Before running the application, ensure that you have the following installed:
+**Prerequisites:**  
 - Node.js
 - npm
 
+---
+
+
+
+
+# Mini-Project7
+
+- This project is a simple User Management System built with Node.js, Express, Mongoose (for MongoDB interactions), and React.
+
+Backend Setup
+Requirements:
+Node.js
+MongoDB
+Steps:
+Clone the repository.
+Navigate to the project directory in the terminal.
+Run npm install to install the required dependencies.
+Make sure your MongoDB server is running.
+Run node server.js to start the backend server. It will connect to MongoDB and start listening on port 3000.
+API Endpoints:
+GET /api/users - Fetches all users from the database.
+POST /api/users - Adds a new user to the database. The body should contain name, email, and age.
+Frontend Setup:
+Requirements:
+Node.js
+Steps:
+Navigate to the frontend (React) directory in the terminal.
+Run npm install to install the required dependencies.
+Run npm start to start the React development server. It will open up the application in your default browser.
+Features:
+Users List
+Displays a list of all the users fetched from the backend.
+
+Add User
+A form to add a new user. It takes in the following details:
+
+Name
+Email
+Age
+Upon submitting, it sends the data to the backend to save it in the MongoDB database.
+
+Database Setup:
+We are using MongoDB as our database. The steps to set it up with some initial data:
+
+Start your MongoDB shell.
+Use the Mini-project7 database by running: use Mini-project7.
+Create a users collection: db.createCollection("users").
+Insert some sample users:
