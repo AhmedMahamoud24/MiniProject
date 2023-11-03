@@ -15,8 +15,7 @@ function UsersList() {
                 console.error("Error fetching users:", error);
                 setLoading(false);
             });
-    }, []);  // The empty dependency array ensures this effect runs once when the component mounts.
-
+    }, []); 
     if (loading) return <div>Loading...</div>;
 
     return (
