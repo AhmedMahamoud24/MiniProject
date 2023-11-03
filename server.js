@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Define API Endpoints
+
 
 // Get all users
 app.get('/api/users', async (req, res) => {
