@@ -1,6 +1,5 @@
 ## Mini-Project Series
 
-A series of mini-projects ranging from basic Node.js HTTP servers to advanced React applications.
 
 ### Mini-Project2
 
