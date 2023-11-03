@@ -1,21 +1,50 @@
-# MiniProject
+## Mini-Project7
 
-#Functionality
+### Introduction
+This project is a simple User Management System built with Node.js, Express, Mongoose (for MongoDB interactions), and React.
 
-This code program does the following
+### Backend Setup
+**Requirements:**
+- Node.js
+- MongoDB
 
-Read file
-write file
-Delete File
+**Steps:**
+1. Clone the repository.
+2. Navigate to the project directory in the terminal.
+3. Run `npm install` to install the required dependencies.
+4. Make sure your MongoDB server is running.
+5. Run `node server.js` to start the backend server. It will connect to MongoDB and start listening on port 3000.
 
-# Also shows errors
+**API Endpoints:**
+- `GET /api/users` - Fetches all users from the database.
+- `POST /api/users` - Adds a new user to the database. The body should contain name, email, and age.
 
-# Fruits API Refactoring
+### Frontend Setup
+**Requirements:**
+- Node.js
 
-- In my Miniproject4, I refactor the existing code for a simple "Fruits" API to use Promises and async/await. The code is written in JavaScript and utilizes the Express.js framework. The goal of this refactoring is to make the code more readable and maintainable by using asynchronous functions and Promises.
+**Steps:**
+1. Navigate to the frontend (React) directory in the terminal.
+2. Run `npm install` to install the required dependencies.
+3. Run `npm start` to start the React development server. It will open up the application in your default browser.
 
-# MiniProject5
-# Fruits List App
-- This React application fetches a list of fruits from a local API and displays them on the page. It allows users to refresh the fruits list with a button.
-- I basically opened a React aplication in Folder which already contains MiniProject4
-- To check my react app its in Folder mini-projec-t5 ---> App.js
+### Features
+- **Users List**: Displays a list of all the users fetched from the backend.
+  
+- **Add User**: A form to add a new user. It captures:
+  - Name
+  - Email
+  - Age
+  Upon submitting, the data is sent to the backend to be saved in the MongoDB database.
+
+### Database Setup
+We use MongoDB as our database. Here are the steps to set it up with initial data:
+1. Start your MongoDB shell.
+2. Access the `Mini-project7` database by running: `use Mini-project7`.
+3. Create a users collection: `db.createCollection("users")`.
+4. Insert sample users 
+db.users.insertOne({ name: "John Doe", email: "johndoe@example.com", age: 30 });
+db.users.insertMany([
+  { name: "Jane Smith", email: "jane@example.com", age: 28 },
+  { name: "Bob Johnson", email: "bob@example.com", age: 35 }
+]);
